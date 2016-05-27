@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <style type="text/css">
+
+      body {
+
+            background: none;
+
+        }
+
+      .container {
+
+            text-align: center;
+            margin-top: 100px;
+            width: 450px;
+
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+
+         <h1>Youtube</h1>
+         <form>
+           <fieldset class="form-group">
+             <label for="city">YouTube videoaren helbidea sartu</label>
+             <input type="text" class="form-control" name="url" id="url" placeholder="Eg. London, Tokyo" value = " ">
+          </fieldset>
+
+          <button type="button" class="btn btn-primary">Download</button>
+        </form>
+
+
+     </div>
+
+
+
+
+
+     <!-- jQuery first, then Bootstrap JS. -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+     <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap -->
+
+     <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.min.js"></script><!-- Bootstrap -->
+     <script>
+      $('.btn-primary').click(function() {
+            alert('putamierda2');
+          var helbidea = $("#url").val().trim();
+          alert(helbidea);
+          var statusObj={"helbidea":helbidea};
+          $.ajax({
+          url: '/download',
+          type: 'POST',
+          data: JSON.stringify(statusObj, null, '\t'),
+          contentType: 'application/json;charset=UTF-8',
+          success: function(result) {
+              console.log(result);
+      }
+    });
+  });
+
+    </script>
+
+  </body>
+</html>
